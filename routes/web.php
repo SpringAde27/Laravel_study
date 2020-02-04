@@ -27,10 +27,16 @@ Route::get('/home', function () {
 });
 
 Route::get('/', function () {
+    $items = ['apple', 'banana', 'tomato'];
     return view('welcome', [
         'name' => 'Foo',
-        // 'greeting' => '안녕하세요! ',
+        'greeting' => '안녕하세요! ',
+        'items' => $items
     ]);
+});
+
+Route::get('/templete', function(){
+    return view('extend');
 });
 
 // Route::get('/{foo}', function ($foo) {

@@ -81,7 +81,37 @@
 
             <div class="content">
                 <h1><?= isset($greeting) ? "{$greeting}" : "Hello "; ?><?= $name; ?></h1>
+                <h1>{{ $greeting }} {{ $name }}</h1>
 
+                <div>
+                    @if ($itemCount = count($items))
+                        <p>{{ $itemCount }} 종류의 과일이 있습니다.</p>
+                    @else
+                        <p>잉?! 아무것도 없습니다.</p>
+                    @endif
+
+                    <ul>
+                        @foreach ($items as $item)
+                        <li>{{ $item }}</li>
+                        @endforeach
+                    </ul>
+
+                    <ul>
+                        <?php $items = []; ?>  {{-- 라우팅에서 넘긴 변수 덮어쓰기 --}}
+                        
+                        @forelse ($items as $item)
+                            <li>{{ $item }}</li>
+                        @empty
+                            <li>잉?! 아무것도 없습니다.</li>
+                        @endforelse
+                    </ul>
+                </div>
+
+
+                
+
+
+                
                 <div class="title m-b-md">
                     Hello, Laravel!
                 </div>

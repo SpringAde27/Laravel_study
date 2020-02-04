@@ -80,6 +80,8 @@
             @endif
 
             <div class="content">
+                <h1><?= isset($greeting) ? "{$greeting}" : "Hello "; ?><?= $name; ?></h1>
+
                 <div class="title m-b-md">
                     Hello, Laravel!
                 </div>

@@ -11,40 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
-Route::get('/',[
-    'as' => 'home',
-    function(){
-        return '라우트 이름은 "home"입니다.';
-    }
-]);
-
-Route::get('/home', function () {
-    return redirect(route('home'));
-});
-
-Route::get('/', function () {
-    $items = ['apple', 'banana', 'tomato'];
-    return view('welcome', [
-        'name' => 'Foo',
-        'greeting' => '안녕하세요! ',
-        'items' => $items
-    ]);
-});
-
-Route::get('/templete', function(){
-    return view('extend');
-});
-
-// Route::get('/{foo}', function ($foo) {
-//     return $foo;
-// });
-
-// Route::pattern('foo', '[0-9a-zA-Z]{3}');
-
-// Route::get('/{foo?}', function ($foo = 'bar') {
-//     return $foo;
-// })->where('foo', '[0-9a-zA-Z]{3}');
+Route::resource('articles','ArticlesController');

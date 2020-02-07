@@ -15,6 +15,11 @@ Route::get('/', 'WelcomeController@index');
 
 Route::resource('articles','ArticlesController');
 
+// DB::listen(function ($query) {
+//     dump($query->sql);
+// });
+
+
 Route::get('auth/login', function() {
     $credentials = [
         'email' => 'john@example.com',

@@ -8,6 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -72,9 +75,24 @@
             </div>
         </nav>
 
+        @if (session()->has('flash_message'))
+            <div class="alert alert-info" role="alert" id="myAlert">
+                <button type="button" class="close">&times;</button>
+                {{ session('flash_message') }}
+            </div>
+        @endif
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+
+<script>
+    $(document).ready(function(){
+        $(".close").click(function(){
+            $("#myAlert").alert("close");
+        });
+    });
+</script>
 </body>
 </html>

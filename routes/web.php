@@ -19,7 +19,6 @@ Route::resource('articles','ArticlesController');
 //     dump($query->sql);
 // });
 
-
 Route::get('auth/login', function() {
     $credentials = [
         'email' => 'john@example.com',

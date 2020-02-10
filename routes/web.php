@@ -32,6 +32,21 @@ Route::get('auth/login', function() {
     return redirect('protected');
 });
 
+Route::get('mail', function() {
+    $article = \App\Article::with('user')->find(1);
+
+    return Mail::send(
+        // ['text' => 'emails.articles.created-text'],
+        'emails.articles.created-text',
+        compact('article'),
+        function ($message) use ($article) {
+            $message->to('nayuniee27@gmail.com');
+            $message->subject('새글이 등록되었습니다.' . $article->title);
+            // $message->attach(storage_path('cat.png'));
+        }
+    );
+});
+
 Route::get('protected', ['middleware' => 'auth', function() {
     dump( session()->all() );
 

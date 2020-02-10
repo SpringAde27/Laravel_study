@@ -65,6 +65,11 @@ return [
         'name' => env('name', 'Admin'),
     ],
 
+    'to' => [
+        'address' => 'springade27@gmail.com',
+        'name' => 'Tester',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

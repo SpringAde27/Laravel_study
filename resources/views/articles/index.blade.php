@@ -9,9 +9,11 @@
         <ul>
             @forelse ($articles as $article)
                 <li>
-                    {{ $article->title }}
+                    <a href="{{ route('articles.show', $article->id) }}">
+                        {{ $article->title }}
+                    </a>
                     <small>
-                       [ by {{ $article->user->name }} ]
+                        [ by {{ $article->user->name }} ]
                     </small>
                 </li>
             @empty

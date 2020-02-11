@@ -86,3 +86,11 @@ Route::get('auth/logout', function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// 실전 프로젝트 1 - 마크다운 뷰어
+Route::get('docs/{file?}', function ($file = null) {
+    $text = (new App\Documentation)->get($file);
+
+    return app(ParsedownExtra::class)->text($text);
+});

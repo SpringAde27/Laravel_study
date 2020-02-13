@@ -90,3 +90,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // 실전 프로젝트 1 - 마크다운 뷰어
 Route::get('docs/{file?}', 'DocsController@show');
+
+Route::get('docs/images/{image}', 'DocsController@image')
+    ->where('image', '[a-zA-Z0-9._-]+-img-[0-9]{2}.png');
